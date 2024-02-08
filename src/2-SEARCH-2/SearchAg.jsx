@@ -1,19 +1,5 @@
 import React, { useState } from 'react';
 
-const initialData = [
-  { id: 1, name: 'John', age: 30, city: 'New York' },
-  { id: 2, name: 'Alice', age: 25, city: 'Los Angeles' },
-  { id: 3, name: 'Bob', age: 35, city: 'Chicago' },
-  { id: 4, name: 'Diana', age: 28, city: 'Houston' },
-  { id: 5, name: 'Mike', age: 40, city: 'Miami' },
-];
-
-const columns = [
-  { key: 'name', label: 'Name' },
-  { key: 'age', label: 'Age' },
-  { key: 'city', label: 'City' },
-];
-
 const SearchAg = () => {
   const [data, setData] = useState(initialData);
   const [sortedColumn, setSortedColumn] = useState('');
