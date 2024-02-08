@@ -1,0 +1,26 @@
+[
+  {
+    "projectName": "SEARCH",
+    "to": "/"
+  },
+  {
+    "projectName": "checkbox1",
+    "to": "/search2"
+  },
+  {
+    "projectName": "checkbox1",
+    "to": "/search2"
+  },
+  {
+    "projectName": "checkbox1",
+    "to": "/search2"
+  },
+  {
+    "projectName": "checkbox1",
+    "to": "/search2"
+  },
+  {
+    "projectName": "checkbox1",
+    "to": "/search2"
+  }
+]

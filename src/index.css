@@ -1,0 +1,158 @@
+* {
+  background-color: black;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  background-color: rgb(0, 0, 0);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Badge {
+  margin: 5px 0px;
+  -ms-flex-item-align: center;
+  -webkit-align-self: center;
+  align-self: center;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: hidden;
+  border-radius: 18px;
+  height: 40px;
+  position: relative;
+  text-align: center;
+}
+.Badge.is-highlightBadge {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+.Badge.is-highlightBadge:before {
+  -webkit-animation: badgeHighlightShimmer 3.5s;
+  animation: badgeHighlightShimmer 3.5s;
+  -webkit-animation-delay: 1.8s;
+  animation-delay: 1.8s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.18) 25%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.18) 75%,
+    rgba(255, 255, 255, 0)
+  );
+  content: '';
+  display: block;
+  height: 90px;
+  left: -60%;
+  position: absolute;
+  top: -150px;
+  -webkit-transform: rotate(-25deg);
+  -ms-transform: rotate(-25deg);
+  transform: rotate(-25deg);
+  width: 200px;
+}
+@-webkit-keyframes badgeHighlightShimmer {
+  0% {
+    left: -100%;
+    top: -150px;
+  }
+
+  50% {
+    left: 100%;
+    top: 150px;
+  }
+
+  to {
+    left: 100%;
+    top: 150px;
+  }
+}
+
+@keyframes badgeHighlightShimmer {
+  0% {
+    left: -100%;
+    top: -150px;
+  }
+
+  50% {
+    left: 100%;
+    top: 150px;
+  }
+
+  to {
+    left: 100%;
+    top: 150px;
+  }
+}
+
+.heading {
+  font-family: 'Plus Jakarta Sans';
+  font-weight: 800;
+  font-size: 3.5rem;
+  line-height: 130%;
+  text-align: center;
+  background: linear-gradient(
+    93.83deg,
+    #ff0000 15.12%,
+    #d2c4ef 59.95%,
+    #9070d5 104.78%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+.heading1 {
+  font-family: 'Plus Jakarta Sans';
+  font-size: 30px;
+  text-align: center;
+  text-align: center;
+  background: linear-gradient(
+    93.83deg,
+    #ff82bc 5.12%,
+    #d2c4ef 59.95%,
+    #c8afff 104.78%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+.features {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  margin-top: 75px;
+  margin-left: 540px;
+  color: aliceblue;
+  width: 450px;
+  height: 100px;
+}
+.set {
+  background: linear-gradient(
+    93.83deg,
+    #bf6bffbc 10.12%,
+    #e4d07f 89.95%,
+    #c8afff 104.78%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  margin-left: 2px;
+  font-size: 30px;
+  text-align: center;
+}
