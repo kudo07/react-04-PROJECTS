@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Info from '../Info';
+import Info from './Info';
 import Pagination from './Pagination';
 
 const initialData = [
