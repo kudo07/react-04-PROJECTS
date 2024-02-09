@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Info from '../Info';
+import Pagination from './Pagination';
+
 const initialData = [
   { id: 1, name: 'John', age: 30, city: 'New York' },
   { id: 2, name: 'Alice', age: 25, city: 'Los Angeles' },
@@ -13,51 +15,54 @@ const columns = [
   { key: 'age', label: 'Age' },
   { key: 'city', label: 'City' },
 ];
+
 const Search = () => {
-  // states
   const [data, setData] = useState(initialData);
   const [sortedColumn, setSortedColumn] = useState('');
   const [sortDirection, setSortDirection] = useState('asc');
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 2;
 
-  // functions
   const handleSort = (key) => {
     if (sortedColumn === key) {
-      setSortDirection(sortDirection === 'asc' ? 'dsc' : 'asc');
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
     } else {
       setSortedColumn(key);
       setSortDirection('asc');
     }
   };
+
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
 
-  // filtered data
-  const filteredData = data.filter((row) => {
+  const filteredData = data.filter((row) =>
     Object.values(row).some(
       (value) =>
         typeof value === 'string' &&
         value.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  });
+      // (value) => typeof value === 'string' && value.toLowerCase().includes('')
+    )
+  );
 
-  // sorted data
   const sortedData = sortedColumn
     ? filteredData.sort((a, b) => {
         const aValue = a[sortedColumn];
         const bValue = b[sortedColumn];
-
-        if ((typeof aValue === 'string') & (typeof bValue === 'string')) {
+        if (typeof aValue === 'string' && typeof bValue === 'string') {
           return sortDirection === 'asc'
-            ? aValue.localCompare(bValue)
-            : bValue.localCompare(aValue);
+            ? aValue.localeCompare(bValue)
+            : bValue.localeCompare(aValue);
         }
         return sortDirection === 'asc' ? aValue - bValue : bValue - aValue;
       })
     : filteredData;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = sortedData.slice(indexOfFirstItem, indexOfLastItem);
 
-  // end--> functions
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -82,8 +87,23 @@ const Search = () => {
               ))}
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            {currentItems.map((row) => (
+              <tr key={row.id}>
+                {columns.map((column) => (
+                  <td key={`${row.id}-${column.key}`}>{row[column.key]}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
         </table>
+
+        <Pagination
+          itemsPerPage={itemsPerPage}
+          totalItems={sortedData.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
       </div>
     </>
   );
