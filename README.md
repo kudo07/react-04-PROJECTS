@@ -15,7 +15,3 @@ Dive into the ultimate searching experience! Discover the PROJECT-NAME-SEARCH pr
 
 1. Sort, Filter,Search and pagination using logics
 2. Explore the repository for quick access to your favorite projects.
-
-### Contributions
-
-👩‍💻 Contributions are the heart of our community! Feel free to unleash your creativity, share your ideas, or contribute your projects through pull requests.
