@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Info from './Info';
-
+import './style.css';
 const Checkbox = () => {
   const [sourceList, setSourceList] = useState([
     { id: 1, label: 'Item 1' },
@@ -63,11 +63,11 @@ const Checkbox = () => {
   return (
     <>
       <Info />
-      <div>
-        <div>
-          <h2>Source Block</h2>
+      <div className="checkbox">
+        <div className="checkbox1">
+          <h2 className="classboxheading">Source Block</h2>
           {sourceList.map((item) => (
-            <div key={item.id}>
+            <div key={item.id} className="checkboxinput">
               <input
                 type="checkbox"
                 checked={sourceSelectedItems.includes(item.id)}
@@ -78,13 +78,15 @@ const Checkbox = () => {
           ))}
         </div>
         <div>
-          <button onClick={handleTransferToTarget}>Transfer To Target</button>
+          <button className="transfer" onClick={handleTransferToTarget}>
+            Transfer To Target
+          </button>
         </div>
         <div>
-          <h2>Target Block</h2>
+          <h2 className="classboxheading">Target Block</h2>
 
           {targetList.map((item) => (
-            <div key={item.id}>
+            <div key={item.id} className="checkboxinput">
               <input
                 type="checkbox"
                 checked={targetSelectedItems.includes(item.id)}
@@ -95,7 +97,9 @@ const Checkbox = () => {
           ))}
         </div>
         <div>
-          <button onClick={handleTransferToSource}>Transfer To Source</button>
+          <button className="transfer" onClick={handleTransferToSource}>
+            Transfer To Source
+          </button>
         </div>
       </div>
     </>

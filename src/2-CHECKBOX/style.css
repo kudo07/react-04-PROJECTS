@@ -1,0 +1,40 @@
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100px;
+  padding: 30px;
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
+.checkbox1 {
+  display: flex;
+  flex-direction: column;
+}
+.classboxheading {
+  color: aliceblue;
+}
+.checkboxinput {
+  font-size: 40px;
+  font-weight: bolder;
+  color: aliceblue;
+}
+.checkboxinput input {
+  cursor: pointer;
+}
+
+.transfer {
+  color: blueviolet;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+}
+.transfer:focus {
+  outline: none;
+}
+.transfer:hover {
+  color: orange;
+  font-size: 15px;
+  border: none;
+}
