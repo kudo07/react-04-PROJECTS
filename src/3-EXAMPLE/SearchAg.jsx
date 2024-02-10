@@ -25,6 +25,9 @@ const SearchAg = () => {
         : [...sourceSelectedItems, itemId];
 
       setSourceSelectedItems(updatedSelectedItems);
+      {
+        console.log(updatedSelectedItems);
+      }
     } else {
       const updatedSelectedItems = targetSelectedItems.includes(itemId)
         ? targetSelectedItems.filter((id) => id !== itemId)
