@@ -1,0 +1,28 @@
+.faq-container {
+  height: auto;
+  width: 900px;
+
+  margin: 0 auto;
+}
+.faq-question {
+  cursor: pointer;
+  font-size: large;
+  padding: 10px;
+  color: #cf97ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: none;
+}
+
+.faq-answer {
+  background-color: #ffd9d9;
+  font-size: larger;
+}
+.faq-answer p {
+  margin: 0;
+}
+
+.faq-question span {
+  font-size: 20px;
+}

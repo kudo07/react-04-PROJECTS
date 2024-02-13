@@ -6,5 +6,9 @@
   {
     "projectName": "CHECKBOX",
     "to": "/search2"
+  },
+  {
+    "projectName": "ACCORDIAN",
+    "to": "/accordian"
   }
 ]
