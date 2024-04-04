@@ -1,0 +1,141 @@
+import React, { useState } from 'react';
+
+const Table = () => {
+  const [data, setData] = useState(getDefaultData());
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [sortedField, setSortedField] = useState(null);
+  const [isAscending, setIsAscending] = useState(true);
+  const [editingId, setEditingId] = useState(null);
+  const [editData, setEditData] = useState({ id: '', name: '', age: '' });
+  const [newItem, setNewItem] = useState({ id: '', name: '', age: '' });
+
+  // Generate default data
+
+  // Pagination
+
+  // Sorting
+
+  // Pagination change
+
+  // Search
+
+  // CRUD operations
+  const handleEdit = (id) => {
+    setEditingId(id);
+    const selectedItem = data.find((item) => item.id === id);
+    setEditData({ ...selectedItem });
+  };
+
+  const handleSave = () => {
+    const newData = data.map((item) =>
+      item.id === editData.id ? { ...editData } : item
+    );
+    setData(newData);
+    setEditingId(null);
+    setEditData({ id: '', name: '', age: '' });
+  };
+
+  const handleDelete = (id) => {
+    const newData = data.filter((item) => item.id !== id);
+    setData(newData);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEditData({ ...editData, [name]: value });
+  };
+
+  const handleCreate = () => {
+    const id = data.length + 1;
+    setNewItem({ id, name: '', age: '' });
+    setData([...data, newItem]);
+  };
+
+  return (
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th onClick={() => handleSort('id')}>ID</th>
+            <th onClick={() => handleSort('name')}>Name</th>
+            <th onClick={() => handleSort('age')}>Age</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredItems.map((item) => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>
+                {editingId === item.id ? (
+                  <input
+                    type="text"
+                    name="name"
+                    value={editData.name}
+                    onChange={handleChange}
+                  />
+                ) : (
+                  item.name
+                )}
+              </td>
+              <td>
+                {editingId === item.id ? (
+                  <input
+                    type="text"
+                    name="age"
+                    value={editData.age}
+                    onChange={handleChange}
+                  />
+                ) : (
+                  item.age
+                )}
+              </td>
+              <td>
+                {editingId === item.id ? (
+                  <button onClick={handleSave}>Save</button>
+                ) : (
+                  <>
+                    <button onClick={() => handleEdit(item.id)}>Edit</button>
+                    <button onClick={() => handleDelete(item.id)}>
+                      Delete
+                    </button>
+                  </>
+                )}
+              </td>
+            </tr>
+          ))}
+          <tr>
+            <td>{data.length + 1}</td>
+            <td>
+              <input
+                type="text"
+                name="name"
+                value={newItem.name}
+                onChange={(e) =>
+                  setNewItem({ ...newItem, name: e.target.value })
+                }
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                name="age"
+                value={newItem.age}
+                onChange={(e) =>
+                  setNewItem({ ...newItem, age: e.target.value })
+                }
+              />
+            </td>
+            <td>
+              <button onClick={handleCreate}>Create</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default Table;

@@ -4,6 +4,8 @@ import Navbar from './Navbar';
 import { Route, Routes } from 'react-router-dom';
 import data from './data.json';
 import Accordian from './3-ACCORDIAN/Accordian';
+import Spreadsheet from './4-SPREADSHEET/Spreadsheet';
+import Crud from './5-CRUD_TABLE/Crud';
 function App() {
   return (
     <div>
@@ -12,6 +14,8 @@ function App() {
         <Route path="/" element={<Search />} />
         <Route path="/search2" element={<Checkbox />} />
         <Route path="/accordian" element={<Accordian />} />
+        <Route path="/spreadsheet" element={<Spreadsheet />} />
+        <Route path="/crudtable" element={<Crud />} />
       </Routes>
     </div>
   );

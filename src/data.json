@@ -10,5 +10,10 @@
   {
     "projectName": "ACCORDIAN",
     "to": "/accordian"
+  },
+  { "projectName": "SPREADSHEET", "to": "/spreadsheet" },
+  {
+    "projectName": "CRUD_TABLE",
+    "to": "/crudtable"
   }
 ]

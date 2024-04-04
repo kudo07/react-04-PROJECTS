@@ -1,0 +1,16 @@
+.table {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+}
+.cell {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 120px;
+  height: 40px;
+}
+.cell.focused {
+  outline: 2px solid blue;
+}
